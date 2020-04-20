@@ -18,7 +18,9 @@ RUN cd x264 && make && make install
 
 RUN cd comskip/ffmpeg && ./configure --enable-gpl --enable-version3 --disable-stripping --enable-libx264 --enable-shared
 RUN cd comskip/ffmpeg && make && make install
-
 RUN cd comskip && ./configure && make && make install
+
+COPY comskip_wrapper.sh /comskip/misc/
+RUN chmod +x comskip/misc/comskip_wrapper.sh
 
 # EOF
